@@ -19,3 +19,5 @@ while time.time() - tempo_ini < 60:
     if(result != 0):
         print(x)
     x += 1
+
+# teste de alteração na branch
