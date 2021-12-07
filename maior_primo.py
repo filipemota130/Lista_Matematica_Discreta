@@ -1,11 +1,13 @@
 import time
 import math
-x = 17
-y = 13
+x = 34757
+y = 34747
 
 
 def Primo(n, i):
     while (i < n):
+        if(i >= n**0.5):
+            return n
         if (n % i == 0):
             return 0
         else:
