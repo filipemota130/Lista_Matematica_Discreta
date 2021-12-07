@@ -1,7 +1,7 @@
 import time
 import math
-x = 34757
-y = 34747
+x = 7940627
+maior = 0
 
 
 def Primo(n, i):
@@ -16,10 +16,10 @@ def Primo(n, i):
 
 
 tempo_ini = time.time()
-while time.time() - tempo_ini < 60:
+while time.time() - tempo_ini < 120:
     result = Primo(x, 2)
     if(result != 0):
-        print(x)
+        maior = x
     x += 1
-
+print(maior)
 # teste de alteração na branch
