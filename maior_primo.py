@@ -1,7 +1,7 @@
 import time
-import math
-x = 7940627
+x = 3
 maior = 0
+contador = 0
 
 
 def Primo(n, i):
@@ -16,10 +16,11 @@ def Primo(n, i):
 
 
 tempo_ini = time.time()
-while time.time() - tempo_ini < 120:
+while time.time() - tempo_ini < 60:
     result = Primo(x, 2)
     if(result != 0):
         maior = x
+        contador += 1
+        print(maior)
     x += 1
-print(maior)
-# teste de alteração na branch
+print("numero total de primos encontrados:", contador)
