@@ -18,7 +18,8 @@ int mdc(int A, int D)
         D = resto;
         mdc(A, D);
     }
-    else return D;
+    else
+        return D;
 }
 
 int congruencia(int a, int b, int m, int i)
@@ -36,7 +37,8 @@ int congruencia(int a, int b, int m, int i)
         }
         congruencia(a, b, m, ++i);
     }
-    else return 0;
+    else
+        return 0;
 }
 
 int main()
@@ -84,7 +86,7 @@ int main()
         int s2 = congruencia(aux2, 1, m2, 1);
         int s3 = congruencia(aux3, 1, m3, 1);
 
-        int s = ((b1 * n1 * s1) + (b2 * n2 * s2) + (b3 * n3 * s3)) % (m1 * m2 * m3);
+        int s = ((B1 * n1 * s1) + (B2 * n2 * s2) + (B3 * n3 * s3)) % (m1 * m2 * m3);
 
         printf("\nA solucao unica desse sistema de congruencias lineares eh: %d\n", s);
     }

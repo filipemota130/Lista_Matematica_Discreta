@@ -5,8 +5,8 @@ if(b > a):
     aux = b
     b = a
     a = aux
-resto = [a, b, ]
-quociente = [0, 0, ]
+resto = [a, b]
+quociente = [0, 0]
 
 
 def euclides(a, b):
@@ -28,7 +28,7 @@ if (mdc == b):
     valor_s.append(valor_s[0] - (valor_s[1]*quociente[2]))
     valor_t.append(valor_t[0] - (valor_t[1]*quociente[2]))
     print("a*s + b*t = mdc(a,b) ==> ", str(a)+"*s +", str(b)+"*t =", mdc)
-    print("valor de s =", valor_s[2], "valor de t =", valor_t[2])
+    print("valor de s =", 0, "valor de t =", 1)
 else:
     print(resto, quociente)
     for i in range(len(resto)):

@@ -8,8 +8,8 @@ while n != 1:
         potencia += 1
     else:
         if(potencia != 0):
-            print(fator, "^", potencia, end='  X  ')
+            print(str(fator)+"^"+str(potencia), end='  X  ')
             potencia = 0
         fator += 1
 if(potencia != 0):
-    print(fator, "^", potencia, "=", aux)
+    print(str(fator)+"^"+str(potencia), "=", aux)

@@ -28,7 +28,7 @@ int main()
     int num;
     int i = 2;
     scanf("%i", &num);
-    if (num == 1 || num == 0)
+    if (num < 2)
     {
         printf("não é primo\n");
         return 0;

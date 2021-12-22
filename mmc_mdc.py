@@ -79,6 +79,6 @@ def build_mmc(array_exponent, array_exponent2, mmc):
 
 
 build_mmc(array_exponent, array_exponent2, mmc)
-
+print(array_exponent, array_exponent2, mmc)
 print("mdc(%d,%d) =" % (aux1, aux2), math.prod(mdc))
 print("mmc(%d,%d) =" % (aux1, aux2), math.prod(mmc))
