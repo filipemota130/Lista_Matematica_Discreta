@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Sistema de Congruência
+
 int mdc(int A, int D)
 {
     if (A < D)
