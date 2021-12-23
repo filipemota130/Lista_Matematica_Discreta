@@ -5,6 +5,17 @@ Aula Prática:
 Lista de questões envolvendo conceitos abordados em aula
 linguagens utilizadas: Python, C.
 
+Questão 1 - Eh_primo.c
+Questão 2 - Maior_primo_em_60sec.py
+Questão 3 - fatoração_em_primos.py
+Questão 4 - Calculadora_de_mdc_mmc.py
+Questão 5 - mdc_por_euclides.c
+Questão 6 - Combinação_linear.py
+Questão 7 - Calcular_inverso_do_mod.c
+Questão 8 - Calculadora de congruencias.c
+Questão 9 - Sistema_de_3_congruencias.c
+Questão 10 - Não foi feita.
+
 Equipe de desenvolvimento dos programas:
     Athus Henrique Marinho Vasconcelos
     Eduardo Henrique Marques da Silva
