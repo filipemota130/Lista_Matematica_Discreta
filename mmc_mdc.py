@@ -1,7 +1,7 @@
 import math
-
-n = int(input())
-p = int(input())
+print("\nCalculadora de mdc e mmc entre dois números")
+n = int(input("\ninsira o primeiro valor: "))
+p = int(input("insira o segundo valor: "))
 aux1 = n
 aux2 = p
 array_n = [1, ]
@@ -79,6 +79,6 @@ def build_mmc(array_exponent, array_exponent2, mmc):
 
 
 build_mmc(array_exponent, array_exponent2, mmc)
-print(array_exponent, array_exponent2, mmc)
+print("\nresultados:")
 print("mdc(%d,%d) =" % (aux1, aux2), math.prod(mdc))
 print("mmc(%d,%d) =" % (aux1, aux2), math.prod(mmc))

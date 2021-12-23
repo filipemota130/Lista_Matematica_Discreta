@@ -27,6 +27,7 @@ int main()
 {
     int num;
     int i = 2;
+    printf("Verificador de primos:\n");
     scanf("%i", &num);
     if (num < 2)
     {

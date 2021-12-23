@@ -1,4 +1,5 @@
-n = int(input())
+print("=== Calculadora de fatoração ===")
+n = int(input("insira o numero a ser fatorado: "))
 aux = n
 potencia = 0
 fator = 2

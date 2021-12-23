@@ -1,3 +1,4 @@
+print("Calculadora de combinação linear: ")
 a = int(input("primeiro inteiro: "))
 b = int(input("segundo inteiro: "))
 # swap
@@ -27,7 +28,7 @@ print(mdc)
 if (mdc == b):
     valor_s.append(valor_s[0] - (valor_s[1]*quociente[2]))
     valor_t.append(valor_t[0] - (valor_t[1]*quociente[2]))
-    print("a*s + b*t = mdc(a,b) ==> ", str(a)+"*s +", str(b)+"*t =", mdc)
+    print("\na*s + b*t = mdc(a,b) ==> ", str(a)+"*s +", str(b)+"*t =", mdc)
     print("valor de s =", 0, "valor de t =", 1)
 else:
     print(resto, quociente)
