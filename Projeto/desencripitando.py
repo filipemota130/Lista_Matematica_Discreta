@@ -1,8 +1,15 @@
-criptografada = [17, 19, 16, 11, 6, 21, 16, 28, 4, 19, 10, 17, 21, 16, 8, 19, 2, 7, 10, 2, 28, 19, 20, 2]
+criptografada = [145, 194, 31, 88, 200, 109, 31, 57, 36, 194, 43, 145, 109, 31, 216, 194, 6, 107, 43, 6]
+d = int(input('\nDigite a chave D: '))
+n = int(input('Digite a chave N: '))
+descriptografada = list()
+for c in criptografada:
+    c = c**d % n
+    descriptografada.append(c)
+
 desen = list()
 resp = str(input('\nDeseja desencriptala? [Y/N] ')).strip().upper()
 if resp == 'Y':
-    for m in criptografada:
+    for m in descriptografada:
         m = str(m)
         if m == '2':
             m = 'a'
@@ -59,5 +66,6 @@ if resp == 'Y':
         elif m == '28':
             m = ' '
         desen.append(m)
+print('\nA mensagem foi:\n')
 for p in desen:
     print(f'{p}', end='')

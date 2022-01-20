@@ -65,7 +65,6 @@ e = int(input('Digite o valor de E escolhido no programa passado: '))
 for c in criptografada:
     c = c**e % n
     cripto.append(c)
-print(f'\n{cripto}')
 
 with open("criptografada.txt", "w") as f:
-    f.write(str(cripto)+"\n")
+    f.write(f'Sua mensagem criptografada está aqui:\n{cripto}\n')
