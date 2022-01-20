@@ -1,3 +1,10 @@
+def inversoMod(e, relativo, b):
+    while b < relativo:
+        if e * b % relativo == 1:
+            return b
+        else:
+            b+=1
+
 def coprimo(e, relativo):
     cont = 0
     for p in e:
@@ -29,16 +36,16 @@ def eh_primo(n):
     return count
 
 while True:
-    x=int(input("\n#1 insira um numero primo: ")) #Primeiro primo 'p'
-    y=int(input("#2 insira um numero primo: ")) #Segundo primo 'q'
-    if(x<2 or y<2 or eh_primo(x)!=0 or eh_primo(y)!=0):
+    p=int(input("\n#1 insira um numero primo: ")) #Primeiro primo 'p'
+    q=int(input("#2 insira um numero primo: ")) #Segundo primo 'q'
+    if(p<2 or q<2 or eh_primo(p)!=0 or eh_primo(q)!=0):
         print("valores inválidos, não são primos!")
     else:
         print("valores válidos!")
         break
         
-produto=x*y #Valor de N
-relativo=(x-1)*(y-1) #Função totiente de N = φ(x)
+produto=p*q #Valor de N
+relativo=(p-1)*(q-1) #Função totiente de N = φ(x)
 divisores_de_relativo = divisor(relativo)  
 while True:
     while True:
@@ -53,6 +60,13 @@ while True:
         print("voce pode encontra-la no arquivo key.txt gerado na pasta atual")
         break
 
+d = inversoMod(e, relativo, 0)
+
 with open("key.txt", "w") as f:
-    f.write(str(produto)+"\n")
-    f.write(str(e)+"\n")
+    f.write('Essas sao as suas chaves publicas:\n')
+    f.write(f'Chave N: {produto}\n')
+    f.write(f'Chave E: {e}\n')
+    f.write(f'\nEssas sao as suas chaves privadas:\n')
+    f.write(f'Chave P: {p}\n')
+    f.write(f'Chave Q: {q}\n')
+    f.write(f'Chave D: {d}')
