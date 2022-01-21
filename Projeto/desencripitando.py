@@ -1,4 +1,4 @@
-criptografada = [145, 194, 31, 88, 200, 109, 31, 57, 36, 194, 43, 145, 109, 31, 216, 194, 6, 107, 43, 6]
+criptografada = [546, 116, 543, 231, 601, 395, 543, 29, 317, 116, 43, 546, 395, 543, 215, 116, 404, 299, 43, 404, 29, 116, 498, 404]
 d = int(input('\nDigite a chave D: '))
 n = int(input('Digite a chave N: '))
 descriptografada = list()
