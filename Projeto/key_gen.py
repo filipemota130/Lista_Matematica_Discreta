@@ -1,10 +1,3 @@
-def inversoMod(e, relativo, b):
-    while b < relativo:
-        if e * b % relativo == 1:
-            return b
-        else:
-            b+=1
-
 def coprimo(e, relativo):
     cont = 0
     for p in e:
@@ -30,7 +23,7 @@ def euclides(A,D):
 
 def eh_primo(n):
     count = 0
-    for p in range(2, n):
+    for p in range(2, n/2):
         if p % n == 0:
             count += 1
     return count
@@ -47,20 +40,17 @@ while True:
 produto=p*q #Valor de N
 relativo=(p-1)*(q-1) #Função totiente de N = φ(x)
 divisores_de_relativo = divisor(relativo)  
+
 while True:
-    while True:
-        e = int(input(f'Insira um valor entre 1 e {relativo}, que seja relativamente primo a {relativo}: '))
-        divisores_de_e = divisor(e)
-        eh_coprimo = coprimo(divisores_de_e, divisores_de_relativo)
-        if eh_coprimo == 0:
-            break
-    result=euclides(relativo,e)
-    if(result == 1):
+    e = int(input(f'Insira um valor entre 1 e {relativo}, que seja relativamente primo a {relativo}: '))
+    divisores_de_e = divisor(e)
+    eh_coprimo = coprimo(divisores_de_e, divisores_de_relativo)
+    if eh_coprimo == 0:
         print("sua chave foi gerada!")
         print("voce pode encontra-la no arquivo key.txt gerado na pasta atual")
         break
 
-d = inversoMod(e, relativo, 0)
+d = pow(e, -1, relativo)
 
 with open("key.txt", "w") as f:
     f.write('Essas sao as suas chaves publicas:\n')

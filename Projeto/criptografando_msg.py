@@ -67,4 +67,4 @@ for c in criptografada:
     cripto.append(c)
 
 with open("criptografada.txt", "w") as f:
-    f.write(f'Sua mensagem criptografada está aqui:\n{cripto}\n')
+    f.write(f'Sua mensagem criptografada esta aqui:\n{cripto}\n')
