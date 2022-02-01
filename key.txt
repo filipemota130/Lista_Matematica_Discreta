@@ -1,8 +1,0 @@
-Essas sao as suas chaves publicas:
-Chave N: 649
-Chave E: 13
-
-Essas sao as suas chaves privadas:
-Chave P: 59
-Chave Q: 11
-Chave D: 357
