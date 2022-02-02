@@ -28,7 +28,7 @@ def key_gen():
     def eh_primo(n):
         count = 0
         for p in range(2, n//2):
-            if p % n == 0:
+            if n % p == 0:
                 count += 1
         return count
 
