@@ -17,14 +17,6 @@ def key_gen():
                 divi.append(p)
         return divi
 
-    def euclides(A,D):
-        resto = 1
-        while resto>0:
-            resto = A % D
-            A = D
-            D = resto
-        return A
-
     def eh_primo(n):
         count = 0
         for p in range(2, n//2):
@@ -135,6 +127,14 @@ def criptografando_msg():
 
 def desencritando():
     global cripto, d, n
+    with open("criptografada.txt", "r") as f:
+        line= f.readlines()    
+    cripto = line[1]
+    cripto = cripto.replace("[","")
+    cripto = cripto.replace("]","")
+    cripto = cripto.replace("\n","")
+    cripto = cripto.split(",")
+    cripto = list(map(int, cripto))
 
     p = int(input('\nDigite a chave P: '))
     q = int(input('Digite a chave Q: '))
