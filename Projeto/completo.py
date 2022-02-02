@@ -53,6 +53,8 @@ def key_gen():
             print("Sua chave foi gerada!")
             print("Você pode encontra-la no arquivo key.txt gerado na pasta atual")
             break
+        else:
+            print('Valor inválido!')
 
     with open("key.txt", "w") as f:
         f.write('Essas sao as suas chaves publicas:\n')
