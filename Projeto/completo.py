@@ -54,7 +54,6 @@ def key_gen():
         f.write(f'Chave E: {e}\n')
 
 def criptografando_msg():
-    global cripto, n, e
     msg = str(input('\nDigite a mensagem que deseja criptografar: ')).strip().lower()
     list(msg)
     criptografada = list()
@@ -126,7 +125,6 @@ def criptografando_msg():
         f.write(f'Sua mensagem criptografada esta aqui:\n{cripto}\n')
 
 def desencritando():
-    global cripto, d, n
     with open("criptografada.txt", "r") as f:
         line= f.readlines()    
     cripto = line[1]
