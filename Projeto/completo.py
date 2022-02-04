@@ -123,17 +123,18 @@ def criptografando_msg():
         cripto.append(c)
 
     with open("criptografada.txt", "w") as f:
-        f.write(f'Sua mensagem criptografada esta aqui:\n{cripto}\n')
+        for i in cripto:
+            f.write(f'{i} ')
 
 def desencritando():
     global cripto, d, n
     with open("criptografada.txt", "r") as f:
-        line= f.readlines()    
-    cripto = line[1]
+        line= f.readlines()
+    cripto = line
     cripto = cripto.replace("[","")
     cripto = cripto.replace("]","")
     cripto = cripto.replace("\n","")
-    cripto = cripto.split(",")
+    cripto = cripto.split(" ")
     cripto = list(map(int, cripto))
 
     p = int(input('\nDigite a chave P: '))
