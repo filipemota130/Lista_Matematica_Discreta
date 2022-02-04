@@ -2,6 +2,7 @@ cripto = []
 p = q = n = d = e = 0
 
 def key_gen():
+    
     def coprimo(e, relativo):
         for p in e:
             for n in relativo:
@@ -17,11 +18,10 @@ def key_gen():
         return divi
 
     def eh_primo(n):
-        count = 0
         for p in range(2, n//2):
             if n % p == 0:
-                count += 1
-        return count
+                return 1
+        return 0
 
     while True:
         p=int(input("\n#1 insira um numero primo: ")) #Primeiro primo 'p'
@@ -53,6 +53,7 @@ def key_gen():
         f.write(f'Chave E: {e}\n')
 
 def criptografando_msg():
+    global cripto
     msg = str(input('\nDigite a mensagem que deseja criptografar: ')).strip().lower()
     list(msg)
     criptografada = list()
@@ -120,24 +121,31 @@ def criptografando_msg():
         c = c**e % n
         cripto.append(c)
 
+    cripto = str(cripto)
+    cripto = cripto.replace("[","")
+    cripto = cripto.replace("]","")
+    cripto = cripto.replace("\n","")
+    cripto = cripto.replace(",","")
+    
     with open("criptografada.txt", "w") as f:
-        for i in cripto:
-            f.write(f'{i} ')
+        f.write(cripto)
 
+    
 def desencritando():
     def inversoMod(e, relativo, b):
         while b < relativo:
             if e * b % relativo == 1:
                 return b
-        else:
-            b+=1
+            else:
+                b+=1
 
     with open("criptografada.txt", "r") as f:
         line= f.readlines()
-    cripto = line
+    cripto = line[0]
     cripto = cripto.replace("[","")
     cripto = cripto.replace("]","")
     cripto = cripto.replace("\n","")
+    cripto = cripto.replace(","," ")
     cripto = cripto.split(" ")
     cripto = list(map(int, cripto))
 
@@ -145,6 +153,7 @@ def desencritando():
     q = int(input('Digite a chave Q: '))
     e = int(input('Digite a chave E: '))
 
+    print("\nDesencriptando...")
     n=p*q #Valor de N
     relativo=(p-1)*(q-1) #Função totiente de N = φ(x)
 
@@ -213,6 +222,7 @@ def desencritando():
         elif m == '28':
             m = ' '
         desen.append(m)
+    print("\nDesencriptação Concluida!!")
     print('\nA mensagem foi:')
     print('"', end='')
     for p in desen:
