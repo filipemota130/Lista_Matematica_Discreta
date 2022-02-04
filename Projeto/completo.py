@@ -3,12 +3,11 @@ p = q = n = d = e = 0
 
 def key_gen():
     def coprimo(e, relativo):
-        cont = 0
         for p in e:
             for n in relativo:
                 if p == n:
-                    cont+=1
-        return cont
+                    return 1;
+        return 0;
 
     def divisor(n):
         divi = list()
@@ -20,7 +19,7 @@ def key_gen():
     def eh_primo(n):
         count = 0
         for p in range(2, n//2):
-            if p % n == 0:
+            if n % p == 0:
                 count += 1
         return count
 
@@ -54,7 +53,6 @@ def key_gen():
         f.write(f'Chave E: {e}\n')
 
 def criptografando_msg():
-    global cripto, n, e
     msg = str(input('\nDigite a mensagem que deseja criptografar: ')).strip().lower()
     list(msg)
     criptografada = list()
@@ -127,7 +125,13 @@ def criptografando_msg():
             f.write(f'{i} ')
 
 def desencritando():
-    global cripto, d, n
+    def inversoMod(e, relativo, b):
+        while b < relativo:
+            if e * b % relativo == 1:
+                return b
+        else:
+            b+=1
+
     with open("criptografada.txt", "r") as f:
         line= f.readlines()
     cripto = line
@@ -144,7 +148,7 @@ def desencritando():
     n=p*q #Valor de N
     relativo=(p-1)*(q-1) #Função totiente de N = φ(x)
 
-    d = pow(e, -1, relativo)
+    d = inversoMod(e, relativo, 1)
 
     descriptografada = list()
     for c in cripto:
