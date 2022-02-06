@@ -2,26 +2,18 @@ cripto = []
 p = q = n = d = e = 0
 
 def key_gen():
-    
-    def coprimo(e, relativo):
-        for p in e:
-            for n in relativo:
-                if p == n:
-                    return 1;
-        return 0;
-
-    def divisor(n):
-        divi = list()
-        for p in range(2, n + 1):
-            if n % p == 0:
-                divi.append(p)
-        return divi
-
     def eh_primo(n):
         for p in range(2, n//2):
             if n % p == 0:
                 return 1
         return 0
+    
+    def euclides(A, D):
+        while D != 0:
+            aux = D
+            D = A % D
+            A = aux    
+        return A
 
     while True:
         p=int(input("\n#1 insira um numero primo: ")) #Primeiro primo 'p'
@@ -34,13 +26,11 @@ def key_gen():
             
     n=p*q #Valor de N
     relativo=(p-1)*(q-1) #Função totiente de N = φ(x)
-    divisores_de_relativo = divisor(relativo)  
 
     while True:
         e = int(input(f'\nInsira um valor entre 1 e {relativo}, que seja relativamente primo a {relativo}: '))
-        divisores_de_e = divisor(e)
-        eh_coprimo = coprimo(divisores_de_e, divisores_de_relativo)
-        if eh_coprimo == 0:
+        eh_coprimo = euclides(e, relativo)
+        if eh_coprimo == 1:
             print("Sua chave foi gerada!")
             print("Você pode encontra-la no arquivo key.txt gerado na pasta atual")
             break
@@ -129,9 +119,11 @@ def criptografando_msg():
     
     with open("criptografada.txt", "w") as f:
         f.write(cripto)
+    print("\nMensagem criptografada!!")
 
     
 def desencritando():
+    
     def inversoMod(e, relativo, b):
         while b < relativo:
             if e * b % relativo == 1:
