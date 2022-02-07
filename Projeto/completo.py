@@ -45,7 +45,6 @@ def key_gen():
 def criptografando_msg():
     global cripto
     msg = str(input('\nDigite a mensagem que deseja criptografar: ')).strip().lower()
-    list(msg)
     criptografada = list()
     for m in msg:
         if m == 'a':
