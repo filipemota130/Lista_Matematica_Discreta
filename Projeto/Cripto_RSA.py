@@ -1,3 +1,7 @@
+import math
+
+
+import math
 cripto = []
 p = q = n = d = e = 0
 
@@ -11,8 +15,9 @@ def mod_power(a, exp, mod):
         return r
     
 def key_gen():
+    
     def eh_primo(n):
-        for p in range(2, n//2):
+        for p in range(2, int(math.sqrt(n))):
             if n % p == 0:
                 return 1
         return 0
