@@ -1,6 +1,15 @@
 cripto = []
 p = q = n = d = e = 0
 
+def mod_power(a, exp, mod):
+        r=1
+        while exp>0:
+            if exp & 1 == 1:
+                r= (r*a) % mod
+            a = (a*a)%mod
+            exp>>=1
+        return r
+    
 def key_gen():
     def eh_primo(n):
         for p in range(2, n//2):
@@ -43,6 +52,7 @@ def key_gen():
         f.write(f'Chave E: {e}\n')
 
 def criptografando_msg():
+    
     global cripto
     msg = str(input('\nDigite a mensagem que deseja criptografar: ')).strip().lower()
     criptografada = list()
@@ -106,8 +116,8 @@ def criptografando_msg():
     n = int(input('\nDigite o valor de N obtido no programa passado: '))
     e = int(input('Digite o valor de E escolhido no programa passado: '))
 
-    for c in criptografada:
-        c = c**e % n
+    for t in criptografada:
+        c = mod_power(t,e,n)
         cripto.append(c)
 
     cripto = str(cripto)
@@ -152,8 +162,8 @@ def desencritando():
 
     descriptografada = list()
     for c in cripto:
-        c = c**d % n
-        descriptografada.append(c)
+        t = mod_power(c, d, n)
+        descriptografada.append(t)
 
     desen = list()
     for m in descriptografada:
