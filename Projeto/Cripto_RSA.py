@@ -1,7 +1,5 @@
 import math
-
-
-import math
+import random
 cripto = []
 p = q = n = d = e = 0
 
@@ -13,7 +11,29 @@ def mod_power(a, exp, mod):
             a = (a*a)%mod
             exp>>=1
         return r
-    
+
+def miller_rabin(n,k):
+    if n==2:
+        return True
+    if n%2 == 0:
+        return False
+    r, s=0, n-1
+    while s%2 == 0:
+        r+=1
+        s//=2
+    for _ in range(k):
+        a= random.randrange(2, n-1)
+        x= pow(a,s,n)
+        if x ==1 or x==n-1:
+            continue
+        for _ in range(r-1):
+            x= pow(x,2,n)
+            if x==n-1:
+                break
+        else:
+            return False
+    return True
+        
 def key_gen():
     
     def eh_primo(n):
@@ -32,7 +52,7 @@ def key_gen():
     while True:
         p=int(input("\n#1 insira um numero primo: ")) #Primeiro primo 'p'
         q=int(input("#2 insira um numero primo: ")) #Segundo primo 'q'
-        if(p<2 or q<2 or eh_primo(p)!=0 or eh_primo(q)!=0):
+        if(p<2 or q<2 or miller_rabin(p,40)==False or miller_rabin(q,40)==False):
             print("  Valores inválidos, não são primos!")
         else:
             print("  Valores válidos!")
